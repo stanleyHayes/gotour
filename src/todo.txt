@@ -1,0 +1,9 @@
+create a single Tourist item called TouristSite.js inside the shared folder in components
+use Favorite.js and Bookmark.js as reference
+
+
+fill the RegionDetailPage.js and TouristSiteDetailPage.js with ui on paper
+use DiscoveryPage as reference
+
+
+create touristsites in the redux folder 

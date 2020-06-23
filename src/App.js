@@ -1,25 +1,60 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import HomePage from './pages/index/HomePage';
+import DiscoveryPage from './pages/discovery/DiscoveryPage';
+import ProfilePage from './pages/profile/ProfilePage';
+import ChangePasswordPage from './pages/authentication/ChangePasswordPage';
+import ForgotPasswordPage from './pages/authentication/ForgotPasswordPage';
+import ResetPasswordPage from './pages/authentication/ResetPasswordPage';
+import SignInPage from './pages/authentication/SignInPage';
+import SignUpPage from './pages/authentication/SignUpPage';
+import RegionDetailPage from './pages/discovery/RegionDetailPage';
+import TouristSiteDetailPage from './pages/discovery/TouristSiteDetailPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route exact={true} path="/">
+        <HomePage />
+      </Route>
+
+      <Route exact={true} path="/discovery">
+        <DiscoveryPage />
+      </Route>
+
+      <Route exact={true} path="/profile">
+        <ProfilePage />
+      </Route>
+
+      <Route exact={true} path="/change-password">
+        <ChangePasswordPage />
+      </Route>
+
+      <Route exact={true} path="/forgot-password">
+        <ForgotPasswordPage />
+      </Route>
+
+      <Route exact={true} path="/reset-password">
+        <ResetPasswordPage />
+      </Route>
+
+      <Route exact={true} path="/login">
+        <SignInPage />
+      </Route>
+
+      <Route exact={true} path="/register">
+        <SignUpPage />
+      </Route>
+
+      <Route path="/regions/:regionID">
+        <RegionDetailPage />
+      </Route>
+
+      <Route path="/sites/:siteID/">
+        <TouristSiteDetailPage />
+      </Route>
+    </Switch>
   );
 }
 
