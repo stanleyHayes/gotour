@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../navigation/Header';
 
+
 function Layout({ children }) {
   return (
     <div>

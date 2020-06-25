@@ -8,10 +8,11 @@ import {
   Button,
   LinearProgress,
 } from '@material-ui/core';
-import { Link, useHistory } from 'react-router-dom';
+import {Link, Redirect, useHistory} from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 import { connect, useDispatch } from 'react-redux';
 import { signUp } from '../../redux/authentication/authenticationActionCreators';
+import "../../App.css";
 
 function SignUpPage({ currentUser, loading }) {
   const [user, setUser] = useState({ role: 'ADMIN' });
@@ -88,6 +89,10 @@ function SignUpPage({ currentUser, loading }) {
 
   const classes = useStyles();
 
+  if(currentUser && !loading){
+    return <Redirect to="/" />
+  }
+
   return (
     <Grid
       className={classes.container}
@@ -117,6 +122,7 @@ function SignUpPage({ currentUser, loading }) {
                 value={user.name}
                 required={true}
                 margin="dense"
+                size="small"
                 helperText={error.name}
                 variant="outlined"
                 type="text"
@@ -133,6 +139,7 @@ function SignUpPage({ currentUser, loading }) {
                 onChange={handleUserChange}
                 value={user.email}
                 required={true}
+                size="small"
                 margin="dense"
                 helperText={error.email}
                 variant="outlined"
@@ -151,6 +158,7 @@ function SignUpPage({ currentUser, loading }) {
                 value={user.password}
                 required={true}
                 margin="dense"
+                size="small"
                 helperText={error.password}
                 variant="outlined"
                 type="password"
@@ -167,6 +175,7 @@ function SignUpPage({ currentUser, loading }) {
                 onChange={handlePasswordChange}
                 value={confirmPassword}
                 required={true}
+                size="small"
                 margin="dense"
                 helperText={error.confirmPassword}
                 variant="outlined"

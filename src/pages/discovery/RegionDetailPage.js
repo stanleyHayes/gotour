@@ -4,8 +4,10 @@ import { connect, useDispatch } from 'react-redux';
 import TouristSite from '../../components/shared/TouristSite';
 import { getRegion } from '../../redux/regions/region-action-creator';
 import { useParams } from 'react-router-dom';
+import "../../App.css";
+import {LinearProgress} from "@material-ui/core";
 
-function RegionDetailPage({ region }) {
+function RegionDetailPage({ region, loading }) {
   console.log(region);
   const dispatch = useDispatch();
 
@@ -19,13 +21,13 @@ function RegionDetailPage({ region }) {
   return (
     <Layout>
       <div>
-        {/* <!--List of region details--> */}
+        {loading && <LinearProgress variant="query" />}
         <section>
           <section id="Region Detail" className="section section-region">
             <div className="container">
               <div>
                 <img
-                  className="responsive-img"
+                  className="responsive-img inline-block full-screen image-display-cover"
                   src={
                     region
                       ? region.image

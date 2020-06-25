@@ -8,10 +8,11 @@ import {
   Button,
   LinearProgress,
 } from '@material-ui/core';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory,Redirect } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 import { connect, useDispatch } from 'react-redux';
 import { signIn } from '../../redux/authentication/authenticationActionCreators';
+import "../../App.css";
 
 function SignInPage({ currentUser, loading }) {
   const [user, setUser] = useState({});
@@ -56,6 +57,10 @@ function SignInPage({ currentUser, loading }) {
   });
 
   const classes = useStyle();
+
+  if(currentUser && !loading){
+    return <Redirect to="/" />
+  }
 
   return (
     <Grid

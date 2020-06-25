@@ -29,7 +29,7 @@ import {
 } from './authenticationActionTypes';
 
 const user = {
-  name: '',
+  name: 'Stanley Hayford',
   favorites: [
     {
       name: 'Kakum National Park',

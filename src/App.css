@@ -2,3 +2,34 @@
   width: 60px;
   height: 55px;
 }
+
+.full-screen{
+  min-height: 100vh;
+}
+
+.inline-block{
+  display: inline-block;
+}
+
+.image-display-cover{
+  object-fit: cover;
+}
+
+.responsive-image-fullscreen{
+  height: 60vh;
+  width: 100vw;
+  object-fit: contain;
+}
+
+  @media screen and (max-width: 600px) {
+    .responsive-image-fullscreen {
+      height: 50vh;
+      width: 100vw;
+      object-fit: contain;
+  }
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  border-bottom: none;
+}
+

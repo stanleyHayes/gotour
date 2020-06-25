@@ -3,9 +3,12 @@ import Layout from '../../components/layout/Layout';
 import { connect, useDispatch } from 'react-redux';
 import { getSite } from '../../redux/touristsites/touristsite-action-creator';
 import { useParams } from 'react-router-dom';
+import "../../App.css";
+import {LinearProgress} from "@material-ui/core";
 
-function TouristsiteDetailPage({ site }) {
+function TouristsiteDetailPage({ site, loading }) {
   const dispatch = useDispatch();
+  console.log('Site',site);
 
   const { siteID } = useParams();
   useEffect(
@@ -17,31 +20,28 @@ function TouristsiteDetailPage({ site }) {
   return (
     <Layout>
       <div>
-        {/* <!--Touristsite details--> */}
+        {loading && <LinearProgress variant="query" />}
         <section>
-          <section id="Touristsite Detail" className="container grey-text">
-            <div className="container">
-              <div>
-                <img
-                  className="responsive-img"
-                  src={
-                    site
+          <div>
+            <img
+                className="responsive-img inline-block image-display-cover responsive-image-fullscreen"
+                src={
+                  site
                       ? site.image
                       : `${process.env.PUBLIC_URL}/images/default.jpg`
-                  }
-                  alt=""
-                />
-              </div>
-              <div>
-                <p className="flow-text">{site && site.name}</p>
-                <p>{site && site.description}</p>
-              </div>
-              <div className="row" id="1">
-                <h4 className="center">
-                  <span>Gallery</span>
-                </h4>
+                }
+                alt=""
+            />
+          </div>
+          <section id="Touristsite Detail" className="container grey-text">
 
-                {/**Site gallery here */}
+            <div className="container">
+              <div>
+                <p className="flow-text black-text text-lighten-2">{site && site.name}</p>
+                <p className="black-text text-lighten-3">{site && site.description}</p>
+                <h4 className="center">
+                  <span>Location</span>
+                </h4>
               </div>
             </div>
           </section>

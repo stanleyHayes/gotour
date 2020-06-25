@@ -1,43 +1,43 @@
 import React from 'react';
 import Layout from '../../components/layout/Layout';
-import { Carousel } from 'rsuite';
+import "../../App.css";
 
 function HomePage() {
+
   return (
-    <Layout>
-      <div className="carousel carousel slidder">
+      <Layout>
+      <div className="carousel carousel-slider">
+
         <div className="carousel-item">
-          {/* <!-- first image --> */}
-          <img alt="" src={`${process.env.PUBLIC_URL}/images/cover.jpg`} />
+          <img className="responsive-img full-screen inline-block" alt="" src={`${process.env.PUBLIC_URL}/images/cover.jpg`} />
           <div className="caption center-align">
             <h3>GO TOUR!</h3>
-            <h5 className="light grey-text text-lighten-3 hide-on-small-only">
+            <h5 className="light grey-text text-darken-3 hide-on-small-only">
               Across Ghana, you can find everything from beautiful sites to rich
               culture Visit museums, Makola market and Independence Square.
             </h5>
           </div>
         </div>
+
         <div className="carousel-item">
-          {/* <!-- second image --> */}
           <img
-            alt=""
+              className="full-screen inline-block"
+              alt=""
             src={`${process.env.PUBLIC_URL}/images/secondcover.jpg`}
           />
-          <div className="caption left-align">
+          <div className="caption center-align">
             <h3>Extraordinary Experience</h3>
-            <h5 className="light grey-text text-lighten-3 hide-on-small-only">
+            <h5 className="light grey-text text-darken-3 hide-on-small-only">
               Take a digital tour of our unique attractions
             </h5>
           </div>
         </div>
+
         <div className="carousel-item">
-          {/* <!-- third image --> */}
-          <img alt="" src={`${process.env.PUBLIC_URL}/images/thirdcover.jpg`} />
-          <div className="caption right-align">
+          <img className="full-screen inline-block" alt="" src={`${process.env.PUBLIC_URL}/images/thirdcover.jpg`} />
+          <div className="caption center-align">
             <h3>Sightseeing & City Strolls</h3>
-            <h5 className="light grey-text text-lighten-3 hide-on-small-only">
-              Start your discovery tour now
-            </h5>
+            <h5 className="light grey-text text-darken-3 hide-on-small-only">Start your discovery tour now</h5>
           </div>
         </div>
       </div>
