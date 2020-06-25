@@ -85,7 +85,7 @@ const user = {
   ],
 };
 const initialState = {
-  currentUser: user,
+  currentUser: null,
   token: '',
   error: '',
   loading: false,

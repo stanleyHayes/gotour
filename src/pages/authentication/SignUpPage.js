@@ -89,7 +89,7 @@ function SignUpPage({ currentUser, loading }) {
 
   const classes = useStyles();
 
-  if(currentUser && !loading){
+  if(!currentUser && !loading){
     return <Redirect to="/" />
   }
 

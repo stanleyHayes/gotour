@@ -58,7 +58,7 @@ function SignInPage({ currentUser, loading }) {
 
   const classes = useStyle();
 
-  if(currentUser && !loading){
+  if(!currentUser && !loading){
     return <Redirect to="/" />
   }
 

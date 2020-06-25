@@ -1,91 +1,38 @@
-import React from 'react';
-import {Link, useHistory} from 'react-router-dom';
-import '../../App.css';
-import {connect, useDispatch} from 'react-redux';
-import {signOutRequest} from '../../redux/authentication/authenticationActionCreators';
-import {makeStyles} from '@material-ui/styles';
+import React from "react";
+import {AppBar, Hidden} from "@material-ui/core";
+import MobileHeader from "./MobileHeader";
+import DesktopHeader from "./DesktopHeader";
+import {makeStyles} from "@material-ui/styles";
 
-function Header({currentUser}) {
-    const dispatch = useDispatch();
-    const history = useHistory();
+function Header({handleDrawerToggle}) {
 
-    function handleLogout(event) {
-        event.preventDefault();
-        dispatch(signOutRequest());
-        history.push('/login');
-    }
-
-    const useSyles = makeStyles({
-        link: {
-            cursor: 'pointer',
+    const useStyles = makeStyles({
+        title: {
+            color: "yellow"
         },
+        appbar: {
+            backgroundColor: "black",
+            paddingTop: 8,
+            paddingBottom: 8,
+            paddingLeft: 24,
+            paddingRight: 24
+        }
     });
 
-    const classes = useSyles();
+    const classes = useStyles();
+
 
     return (
-        <div>
-            <div className="navbar-fixed">
-                <nav className="grey darken-4">
-                    <div className="container">
-                        <div className="nav-wrapper">
-                            <a href="/">
-                                <img
-                                    alt=""
-                                    className="brand-logo"
-                                    src={`${process.env.PUBLIC_URL}/images/GoTour_logo.png`}
-                                />
-                            </a>
-                            <a href="#" data-target="mobile-nav" className="sidenav-trigger">
-                                <i className="material-icons">menu</i>
-                            </a>
-                            <ul className="right hide-on-med-and-down">
-                                <li>
-                                    <Link to="/discovery">
-                                        <span className="yellow-text text-accent-3">Discovery</span>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="/profile">
-                                        <span
-                                            className="yellow-text text-accent-3">{currentUser && currentUser.name}</span>
-                                    </Link>
-                                </li>
-
-                                {currentUser ? (
-                                    <li>
-                                            <span
-                                                onClick={handleLogout}
-                                                className={`yellow-text text-accent-3 ${classes.link}`}>
-                                                Logout
-                                            </span>
-                                    </li>
-                                ) : (
-                                    <li>
-                                        <Link to="/login">
-                                            <span className="yellow-text text-accent-3">Login</span>
-                                        </Link>
-                                    </li>
-                                )}
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-            <ul className="sidenav" id="mobile-nav">
-                <li>
-                    <Link to="/discovery">Discovery</Link>
-                </li>
-                <li>
-                    <Link to="/profile">Profile</Link>
-                </li>
-            </ul>
-        </div>
-    );
+        <AppBar className={classes.appbar} variant="elevation" elevation={1} position="sticky" >
+            <Hidden mdDown={true}>
+                <DesktopHeader/>
+            </Hidden>
+            <Hidden lgUp={true}>
+                <MobileHeader
+                    handleDrawerToggle={handleDrawerToggle}/>
+            </Hidden>
+        </AppBar>
+    )
 }
 
-function mapStateToProps(state) {
-    return {currentUser: state.authentication.currentUser};
-}
-
-export default connect(mapStateToProps)(Header);
+export default Header;

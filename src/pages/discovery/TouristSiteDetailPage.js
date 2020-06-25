@@ -7,6 +7,7 @@ import "../../App.css";
 import {LinearProgress, Button} from "@material-ui/core";
 import ReactMapGL, {Popup, Marker} from "react-map-gl";
 import {LocationOn} from "@material-ui/icons";
+import {makeStyles} from "@material-ui/styles";
 
 function TouristsiteDetailPage({site, loading}) {
     const dispatch = useDispatch();
@@ -33,9 +34,18 @@ function TouristsiteDetailPage({site, loading}) {
         },
         [dispatch, siteID]
     );
+
+    const useStyles = makeStyles({
+        container: {
+            marginBottom: 32
+        }
+    });
+
+    const classes = useStyles();
+
     return (
         <Layout>
-            <div>
+            <div className={classes.container}>
                 {loading && <LinearProgress variant="query"/>}
                 <section>
                     <div>
@@ -89,8 +99,6 @@ function TouristsiteDetailPage({site, loading}) {
                                             </Popup>
                                         )
                                     }
-
-
                                 </ReactMapGL>
                             </div>
                         </div>
