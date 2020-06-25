@@ -5,6 +5,7 @@ import Favorite from '../../components/shared/Favorite';
 import Bookmark from '../../components/shared/Bookmark';
 
 function ProfilePage({ currentUser }) {
+
   return (
     <Layout>
       <div>

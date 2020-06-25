@@ -2,17 +2,8 @@ import React from 'react';
 import Layout from '../../components/layout/Layout';
 import "../../App.css";
 import {Carousel} from "rsuite";
-import {makeStyles} from "@material-ui/styles";
 
 function HomePage() {
-
-    const useStyles = makeStyles({
-        carousel: {
-            width: "100vw"
-        }
-    });
-
-    const classes = useStyles();
 
     return (
         <Layout>
